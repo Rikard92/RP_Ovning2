@@ -17,8 +17,7 @@
                     case "1":
                         Console.WriteLine("How many people wants to see a movie?");
                         int partynum = Int32.Parse(Console.ReadLine());
-                        int TicketSum = GetTicketPrice(partynum);
-                        Console.WriteLine("Total {0}kr", TicketSum);
+                        Console.WriteLine("Total {0}kr", GetTicketPrice(partynum));
                         break;
 
                     case "2":
@@ -34,14 +33,8 @@
                     case "3":
                         Console.WriteLine("Write a sentence with three words");
                         string sentence = Console.ReadLine();
-                        if (sentence.Split(' ').Length > 2)
-                        {
-                            Console.WriteLine(sentence.Split(' ')[2]);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Write three words next time");
-                        }
+                        Console.WriteLine(GetThirdWord(sentence));
+                        
                         break;
 
                     default:
@@ -50,6 +43,20 @@
 
                 }
             }
+        }
+
+        private string GetThirdWord(string sentence)
+        {
+            string ReturnString;
+            if (sentence.Split(' ').Length > 2)
+            {
+                ReturnString = sentence.Split(' ')[2];
+            }
+            else
+            {
+                ReturnString ="Write three words next time";
+            }
+            return ReturnString;
         }
 
         private int GetTicketPrice(int partynum)
